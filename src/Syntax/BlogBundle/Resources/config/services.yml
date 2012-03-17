@@ -1,0 +1,5 @@
+services:
+  syntax_blog.antispam:
+    class: Syntax\BlogBundle\Service\SyntaxAntiSpam
+    tags: 
+      - { name: twig.extension }

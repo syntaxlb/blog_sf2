@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerName plomberic
+    DocumentRoot /home/syntax/www-dev/public/plomberic/web
+
+    <Directory "/home/syntax/www-dev/public/plomberic/web">
+        DirectoryIndex app.php
+        Options -Indexes FollowSymLinks SymLinksifOwnerMatch
+        AllowOverride All
+        Allow from All
+    </Directory>
+</VirtualHost>

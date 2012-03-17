@@ -1,0 +1,28 @@
+{# src/Syntax/BlogBundle/Resources/views/Blog/index.html.twig #}
+
+{% extends "SyntaxBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
+
+{% block blog_body %}
+
+	<h2>Liste des articles</h2>
+
+	<ul>
+		{% for article in pagerfanta.getCurrentPageResults %}
+			<li>
+				<a href="{{ path('blog_voir', {'id': article.id}) }}">{{ article.titre }}</a>
+				par {{ article.auteur }},
+				le {{ article.date|date('d/m/Y') }}
+			</li>
+		{% else %}
+			<li>Pas (encore !) d'articles</li>
+		{% endfor %}
+	</ul>
+        <div class="pagerfanta">
+            {{ pagerfanta(pagerfanta, 'twitter_bootstrap_translated') }}
+        </div>
+
+{% endblock %}
